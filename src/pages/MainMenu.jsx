@@ -57,8 +57,6 @@ export default function MainMenu() {
               <button onClick={() => navigate('/selectborder')}>Start!</button>
             </div>
           </div>
-
-
         </main>
       </div>
       
