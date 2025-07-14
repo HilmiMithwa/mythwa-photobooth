@@ -1,65 +1,43 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-
+import React from 'react';
+import SNAPZY from '../images/SNAPZY.png';
+import randomPerson from '../images/photos.png';
+import BackgroundMainmenu from '../images/BackgroundMainmenu.png'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function MainMenu() {
-  const navigate = useNavigate();
-  const [dropDown, setDropDown] = useState(false);
-
-  const handleDropDown= () => {
-    setDropDown(prev => !prev);
-  };
-
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (!e.target.closest('#social-media-dropdown')) {
-        setDropDown(false);
-      }
-    };
-    if (dropDown) {
-      document.addEventListener('mousedown', handleClick);
-    }
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, [dropDown]);
+  const navigate = useNavigate()
 
   return (
-    <>
-    <div className='font-roboto'>
-      <header className='flex justify-between items-center px-4 py-2 m-5'>
-        <h1>Mythwa Photobooth</h1>
-          <nav className='space-x-7'>
-            <a>Home</a>
-            <a>About</a>
-            <div id='social-media-dropdown' className='relative inline-block'>
-              <button id='social-media' onClick={handleDropDown}>Social Media</button>
-              {dropDown && (
-                <div className='absolute left-0 top-full mt-2 bg-white shadow-lg border rounded w-48 z-10'>
-                  <ul className='flex flex-col text-left p-2 '>
-                    <li><a href='https://www.instagram.com/hilmimthwaa__/?next=%2F'>hilmimthwaa__</a></li>
-                    <li><a>hilmimithwa@gmail.com</a></li>
-                    <li><a>HilmiMithwa</a></li>
-                  </ul>
-                </div>
-              )}
-            </div>
-            <a>Your Recent Photos</a>
+    <div className='w-screen h-screen bg-cover bg-center' style={{backgroundImage: `url(${BackgroundMainmenu})` }}>
+      <nav className='flex justify-between items-center font-manrope bg-white px-12 py-10'>
 
-          </nav>
-        </header>
-        <main className='flex flex-col items-center justify-center min-h-[60vh] '>
-          <div id='welcoming-screen' className='text-center '>
-            <h1>Welcome!</h1>
-            <p>Capture the Moment, Share the Joy!</p>
-            <div id='start-button' className='bg-color'>
-              <button onClick={() => navigate('/selectborder')}>Start!</button>
-            </div>
-          </div>
-        </main>
+        <div className='flex items-center space-x-100'>
+          <img src={SNAPZY} alt='logo' className=' object-contain'/>
+          <ul className='flex space-x-8 text-[30px]'>
+            <li><a>Home</a></li>
+            <li><a>About</a></li>
+            <li><a> My Social Media</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h1 className='bg-darkenBlue text-white text-lg px-20 py-5 text-[25px] mr-45'>Your Recent Photos</h1>
+        </div>
+
+      </nav>
+
+      <div>
+        <h1>Welcome to snapzy!</h1>
+        <h2>Capture the moment, share the joy!</h2>
+        <h3>A simple way to capture a precious moment using portable booth</h3>
+        <div id='img-container'>
+          <img src={randomPerson} />
+
+        </div>
+        <button>Start!</button>
+
       </div>
-      
-    </>
+    </div>
   )
 }
