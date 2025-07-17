@@ -2,7 +2,10 @@ import React from 'react';
 import SNAPZY from '../images/SNAPZY.png';
 import randomPerson from '../images/photos.png';
 import BackgroundMainmenu from '../images/BackgroundMainmenu.png'
+
 import { useNavigate } from 'react-router-dom';
+
+
 
 
 export default function MainMenu() {
@@ -27,15 +30,19 @@ export default function MainMenu() {
 
       </nav>
 
-      <div>
-        <h1>Welcome to snapzy!</h1>
-        <h2>Capture the moment, share the joy!</h2>
-        <h3>A simple way to capture a precious moment using portable booth</h3>
-        <div id='img-container'>
-          <img src={randomPerson} />
-
+      <div className='bg-neonPink text-white w-[1211px] h-[640px] rounded-3xl px-20 py-20 flex justify-between items-center'>
+        <div className='flex flex-col gap-5 w-2/3'>
+          <h1 className='font-luckiest text-[60px]'>Welcome to<br/> snapzy!</h1>
+          <h2 className='font-loved text-[50px]'>Capture the moment, share the joy!</h2>
+          <h3 className='font-manrope text-[25px]'>A simple way to capture a precious moment using <br/> portable booth</h3>
+          <button className='font-londrina bg-darkNeonPink rounded-[25px] text-[45px]'>Start!</button>
         </div>
-        <button>Start!</button>
+
+        <div id='img-container' className=''>
+          <img src={randomPerson} />
+        </div>
+        
+
 
       </div>
     </div>
