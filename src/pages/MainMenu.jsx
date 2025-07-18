@@ -46,7 +46,7 @@ export default function MainMenu() {
             <h1 className='font-luckiest text-[60px]'>Welcome to<br/> snapzy!</h1>
             <h2 className='font-loved text-[50px]'>Capture the moment, share the joy!</h2>
             <h3 className='font-manrope text-[25px]'>A simple way to capture a precious moment using <br/> portable booth</h3>
-            <button className='font-londrina bg-darkNeonPink rounded-[25px] text-[45px]'>Start!</button>
+            <button className='font-londrina bg-darkNeonPink rounded-[25px] text-[45px]' onClick={() => navigate('/frame1')}>Start!</button>
           </div>
 
           <div id='carousel-container' className=''>
