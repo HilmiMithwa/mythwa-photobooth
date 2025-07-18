@@ -21,3 +21,61 @@
     --color-darkenBlue: #192131;
     --color-darkNeonPink: #F81CE2;
 }
+
+.custom-dashed-4side {
+  position: relative;
+  background: #FF59EE;
+  padding: 20px;
+}
+
+.custom-dashed-4side::before,
+.custom-dashed-4side::after,
+.custom-dashed-4side div::before,
+.custom-dashed-4side div::after {
+  content: "";
+  position: absolute;
+  background: repeating-linear-gradient(
+    to right,
+    #F81CE2,
+    #F81CE2 60px,
+    transparent 60px,
+    transparent 80px
+  );
+  height: 3px;
+  width: 100%;
+}
+
+.custom-dashed-4side::before {
+  top: 0;
+  left: 0;
+}
+
+.custom-dashed-4side::after {
+  bottom: 0;
+  left: 0;
+}
+
+.custom-dashed-4side div::before,
+.custom-dashed-4side div::after {
+  content: "";
+  position: absolute;
+  background: repeating-linear-gradient(
+    to bottom,
+    #F81CE2,
+    #F81CE2 60px,
+    transparent 60px,
+    transparent 80px
+  );
+  width: 3px;
+  height: 100%;
+}
+
+.custom-dashed-4side div::before {
+  top: 0;
+  left: 0;
+}
+
+.custom-dashed-4side div::after {
+  top: 0;
+  right: 0;
+}
