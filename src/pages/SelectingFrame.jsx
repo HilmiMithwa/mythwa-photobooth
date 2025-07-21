@@ -8,8 +8,9 @@ export default function SelectingFrame() {
   return (
     <div className='w-screen h-screen bg-cover bg-center flex flex-col' style={{backgroundImage: `url(${BackgroundMainmenu})` }}>
       <div>
-        <h1>Choose the Frame</h1>
+
         <div className='flex overflow-x-auto gap-4 bg-neonPink ' id='frame-container'>
+          <h1>Choose the Frame</h1>
           <div className=''>
             <img src={frame1} />
           </div>
