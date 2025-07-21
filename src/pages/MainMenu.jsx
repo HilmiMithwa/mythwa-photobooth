@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,8 +7,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 
 import SNAPZY from '../images/SNAPZY.png';
@@ -19,8 +17,24 @@ import photos3 from '../images/photos3.png'
 
 
 export default function MainMenu() {
-  const navigate = useNavigate()
-  const images = [randomPerson, photos2, photos3]
+  const navigate = useNavigate();
+  const images = [randomPerson, photos2, photos3];
+  const [activePage, setActivePage] = useState('home');
+  const [buttonColor, setButtonColor] = useState('home');
+
+  const handlePage = (page) => {
+    setActivePage(page);
+    setButtonColor(page);
+  }
+
+  const getButtonClass = (page) => {
+    if (page === activePage && buttonColor === activePage) {
+      return 'text-neonPink';
+      
+    } else {
+      return 'text-black'
+    }
+  }
 
   return (
     <div className='w-screen h-screen bg-cover bg-center flex flex-col' style={{backgroundImage: `url(${BackgroundMainmenu})` }}>
@@ -29,9 +43,9 @@ export default function MainMenu() {
         <div className='flex items-center space-x-100'>
           <img src={SNAPZY} alt='logo' className=' object-contain'/>
           <ul className='flex space-x-8 text-[30px]'>
-            <li><a>Home</a></li>
-            <li><a>About</a></li>
-            <li><a> My Social Media</a></li>
+            <li><button onClick={() => handlePage('home')} className={getButtonClass('home')}>Home</button></li>
+            <li><button onClick={() => handlePage('about')} className={getButtonClass('about')}>About</button></li>
+            <li><button onClick={() => handlePage('social-media')} className={getButtonClass('social-media')}> My Social Media</button></li>
           </ul>
         </div>
 
@@ -46,7 +60,7 @@ export default function MainMenu() {
             <h1 className='font-luckiest text-[60px]'>Welcome to<br/> snapzy!</h1>
             <h2 className='font-loved text-[50px]'>Capture the moment, share the joy!</h2>
             <h3 className='font-manrope text-[25px]'>A simple way to capture a precious moment using <br/> portable booth</h3>
-            <button className='font-londrina bg-darkNeonPink rounded-[25px] text-[45px]' onClick={() => navigate('/frame1')}>Start!</button>
+            <button className='font-londrina bg-darkNeonPink rounded-[25px] text-[45px]' onClick={() => navigate('/selectingframe')}>Start!</button>
           </div>
 
           <div id='carousel-container' className=''>
